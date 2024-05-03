@@ -1,8 +1,8 @@
 <template>
-  <div class="products-category">
+  <div class="products-category pt-4">
     <h1 class="text-center">{{ $route.params.title }}</h1>
     <v-container>
-      <v-card :loading="loading" pt-5 elevation="0">
+      <v-card elevation="0" class="pt-5">
         <v-row v-if="loading">
           <v-col cols="3" v-for="num in 4" :key="num">
             <v-skeleton-loader type="image,article,button"></v-skeleton-loader>
