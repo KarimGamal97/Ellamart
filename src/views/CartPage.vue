@@ -361,6 +361,7 @@
                 elevation="0"
                 class="w-100 mx-0"
                 color="#3673e2"
+                @click="toCheckout"
                 >Proceed to Checkout</v-btn
               >
               <v-btn
@@ -408,7 +409,15 @@ export default {
     },
   },
   methods: {
-    ...mapActions(cartStore, ["getCartItems", "deleteItem"]),
+    ...mapActions(cartStore, [
+      "getCartItems",
+      "deleteItem",
+      "setToLocalStorage",
+    ]),
+    toCheckout() {
+      this.setToLocalStorage();
+      this.$router.push({ name: "check_out" });
+    },
   },
 };
 </script>

@@ -35,5 +35,8 @@ export const cartStore = defineStore("cartStore", {
       }
       localStorage.setItem("cart-items", JSON.stringify(this.cartItems));
     },
+    setToLocalStorage() {
+      localStorage.setItem("cart-items", JSON.stringify(this.cartItems));
+    },
   },
 });

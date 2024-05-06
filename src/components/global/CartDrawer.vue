@@ -214,6 +214,7 @@
             elevation="0"
             class="w-100"
             color="blue"
+            @click="toCheckout"
             >Check Out</v-btn
           >
           <v-btn
@@ -259,7 +260,15 @@ export default {
     },
   },
   methods: {
-    ...mapActions(cartStore, ["getCartItems", "deleteItem"]),
+    ...mapActions(cartStore, [
+      "getCartItems",
+      "deleteItem",
+      "setToLocalStorage",
+    ]),
+    toCheckout() {
+      this.setToLocalStorage();
+      this.$router.push({ name: "check_out" });
+    },
   },
   mounted() {
     this.Emitter.on("openCart", () => {

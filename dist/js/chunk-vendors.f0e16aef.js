@@ -33447,20 +33447,18 @@
                   { ref: o, class: "v-date-picker-month__days" },
                   [
                     !e.hideWeekdays &&
-                      c
-                        .getWeekdays()
-                        .map((e) =>
-                          (0, l.Wm)(
-                            "div",
-                            {
-                              class: [
-                                "v-date-picker-month__day",
-                                "v-date-picker-month__weekday",
-                              ],
-                            },
-                            [e[0]]
-                          )
-                        ),
+                      c.getWeekdays().map((e) =>
+                        (0, l.Wm)(
+                          "div",
+                          {
+                            class: [
+                              "v-date-picker-month__day",
+                              "v-date-picker-month__weekday",
+                            ],
+                          },
+                          [e[0]]
+                        )
+                      ),
                     i.value.map((t, n) => {
                       const o = {
                         props: { onClick: () => h(t.date) },
