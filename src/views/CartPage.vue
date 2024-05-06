@@ -335,7 +335,7 @@
                 elevation="0"
                 class="w-100 text-white"
                 color="#3673e2"
-                >Check Out</v-btn
+                >Calculate Shipping</v-btn
               >
             </v-card-actions>
             <v-divider length="100%" color="#000"></v-divider>
