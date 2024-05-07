@@ -1,6 +1,6 @@
 <template>
   <div class="products-category pt-4">
-    <h1 class="text-center">{{ $route.params.title }}</h1>
+    <h1 class="text-center">{{ $route.query.title }}</h1>
     <v-container>
       <v-card elevation="0" class="pt-5">
         <v-row v-if="loading">
@@ -118,7 +118,7 @@
                     @click="
                       $router.push({
                         name: 'product_details',
-                        params: { productId: item.id },
+                        query: { productId: item.id },
                       })
                     "
                     >Choose Options</v-btn
@@ -157,15 +157,20 @@ export default {
   },
   watch: {
     async $route() {
-      document.documentElement.scrollTo(0, 0);
-      this.loading = true;
-      await this.getProductsByCategory(this.$route.params.category);
-      this.loading = false;
+      if (this.$route.name == "products_category") {
+        document.documentElement.scrollTo(0, 0);
+        this.loading = true;
+        await this.getProductsByCategory(this.$route.query.category);
+        this.loading = false;
+      }
     },
   },
   async mounted() {
+    if (!this.$route.query.category) {
+      return this.$router.go(-1);
+    }
     this.loading = true;
-    await this.getProductsByCategory(this.$route.params.category);
+    await this.getProductsByCategory(this.$route.query.category);
     this.loading = false;
   },
 };

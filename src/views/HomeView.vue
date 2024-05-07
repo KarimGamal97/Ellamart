@@ -7,14 +7,16 @@
       :products="flashDeals"
       title="Flash Deals"
       titleColor="red"
+      :index="0"
     />
     <top-categories />
-    <new-products :products="newProducts" />
+    <new-products :products="newProducts" :index="2" />
     <quality-features />
     <products-component
       :products="mobilePhones"
       title="Top Mobile Phones"
       titleColor="red"
+      :index="0"
     />
     <v-container fluid>
       <v-row>
@@ -38,6 +40,7 @@
       :products="fragrances"
       title="Top Fragrances"
       titleColor="red"
+      :index="1"
     />
     <v-container fluid>
       <v-row>
@@ -50,6 +53,7 @@
       :products="skincare"
       title="Top groceries"
       titleColor="red"
+      :index="6"
     />
     <why-shop />
   </div>

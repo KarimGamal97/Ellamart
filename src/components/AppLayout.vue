@@ -7,9 +7,9 @@
       >
         <slot></slot>
       </v-main>
-      <AppNav v-if="$route.name != 'check_out'" />
-      <Fixed-nav v-if="$route.name != 'check_out'" />
-      <AppFooter v-if="$route.name != 'check_out'" />
+      <AppNav v-show="$route.name != 'check_out'" />
+      <Fixed-nav v-show="$route.name != 'check_out'" />
+      <AppFooter v-show="$route.name != 'check_out'" />
     </v-layout>
   </div>
 </template>

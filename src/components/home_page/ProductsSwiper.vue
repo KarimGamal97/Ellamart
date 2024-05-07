@@ -7,7 +7,18 @@
       >
         {{ title }}
       </h2>
-      <a href="#" class="text-black" style="font-size: 14px">Shop All</a>
+      <router-link
+        class="text-black"
+        style="font-size: 14px"
+        :to="{
+          name: 'products_category',
+          query: {
+            title: categories[index].title,
+            category: categories[index].route,
+          },
+        }"
+        >Shop All</router-link
+      >
     </div>
     <v-container fluid v-if="!products.length">
       <v-row>
@@ -30,7 +41,12 @@
       :space-between="35"
       class="pb-10 px-5"
       :navigation="{ prevIcon: '.swiper-prev', nextIcon: ' .swiper-next' }"
-      :autoplay="{ delay: 3000 }"
+      :autoplay="{
+        delay: 3000,
+        pauseOnMouseEnter: true,
+        disableOnInteraction: false,
+      }"
+      :loop="true"
     >
       <swiper-slide v-for="item in products" :key="item.id">
         <v-card elevation="0" class="pb-5">
@@ -103,7 +119,7 @@
               }}</span
             >
           </v-card-text>
-          <v-btn-toggle v-model="showenItem[item.title]"
+          <v-btn-toggle v-model="showenItem[item.title]" mandatory
             ><v-btn
               v-for="(pic, i) in item.images"
               :value="pic"
@@ -146,8 +162,13 @@
 import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 import { Pagination, Navigation, Autoplay } from "swiper";
 import { VSkeletonLoader } from "vuetify/lib/components/index.mjs";
+import { productsModule } from "@/stores/products";
+import { mapState } from "pinia";
 export default {
   inject: ["Emitter"],
+  computed: {
+    ...mapState(productsModule, ["categories"]),
+  },
   props: {
     products: {
       type: Array,
@@ -157,6 +178,12 @@ export default {
     },
     titleColor: {
       type: String,
+    },
+    routeCategory: {
+      type: String,
+    },
+    index: {
+      type: Number,
     },
   },
   setup() {

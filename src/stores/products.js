@@ -36,8 +36,8 @@ export const productsModule = defineStore("productsModule", {
         route: "mens-watches",
       },
       {
-        title: "Womens-Jewellery",
-        route: "womens-jewellery",
+        title: "Groceries",
+        route: "groceries",
       },
     ],
   }),

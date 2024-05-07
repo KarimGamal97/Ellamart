@@ -11,7 +11,18 @@
       >
         New Products
       </h2>
-      <a href="#" class="text-black" style="font-size: 14px">Shop All</a>
+      <router-link
+        class="text-black"
+        style="font-size: 14px"
+        :to="{
+          name: 'products_category',
+          query: {
+            title: categories[index].title,
+            category: categories[index].route,
+          },
+        }"
+        >Shop All</router-link
+      >
     </div>
     <v-container fluid>
       <v-row>
@@ -110,7 +121,7 @@
                     }}</span
                   >
                 </v-card-text>
-                <v-btn-toggle v-model="showenItem[item.title]"
+                <v-btn-toggle v-model="showenItem[item.title]" mandatory
                   ><v-btn
                     v-for="(pic, i) in item.images"
                     :value="pic"
@@ -162,8 +173,13 @@
 import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 import { Pagination, Autoplay } from "swiper";
 import { VSkeletonLoader } from "vuetify/lib/components/index.mjs";
+import { productsModule } from "@/stores/products";
+import { mapState } from "pinia";
 export default {
   inject: ["Emitter"],
+  computed: {
+    ...mapState(productsModule, ["categories"]),
+  },
   methods: {
     openQuickView(product) {
       this.Emitter.emit("openQuickView", product);
@@ -172,6 +188,12 @@ export default {
   props: {
     products: {
       type: Array,
+    },
+    routeCategory: {
+      type: String,
+    },
+    index: {
+      type: Number,
     },
   },
   setup() {
