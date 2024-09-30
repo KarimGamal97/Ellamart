@@ -19,7 +19,7 @@
       <v-card elevation="0" class="content_card">
         <v-container fluid style="background-color: #fff" class="pt-10 px-10">
           <v-row>
-            <v-col cols="7">
+            <v-col cols="12" md="7">
               <img
                 :src="tab ? tab : product.thumbnail"
                 class="w-100"
@@ -42,7 +42,7 @@
                 </v-tab>
               </v-tabs>
             </v-col>
-            <v-col cols="5" class="pt-0 pl-6">
+            <v-col cols="12" md="5" class="pt-0 pl-6 mt-8 mt-md-0">
               <v-skelton-loader
                 v-if="loading"
                 type="article,article,article"

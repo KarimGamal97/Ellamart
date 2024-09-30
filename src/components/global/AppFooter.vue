@@ -23,7 +23,7 @@
               </v-card-text>
             </v-card>
           </v-col>
-          <v-col cols="3">
+          <v-col cols="12" sm="6" md="4" lg="3">
             <v-card elevation="0" color="transparent">
               <v-card-title class="mb-3">Further Info.</v-card-title>
               <v-card-text>About</v-card-text>
@@ -35,7 +35,7 @@
               <v-card-text>Blog</v-card-text>
             </v-card>
           </v-col>
-          <v-col cols="3">
+          <v-col cols="12" sm="6" md="4" lg="3">
             <v-card elevation="0" color="transparent">
               <v-card-title class="mb-3">Customer Service</v-card-title>
               <v-card-text>Search Terms</v-card-text>
@@ -47,7 +47,7 @@
               <v-card-text>Store Location</v-card-text>
             </v-card>
           </v-col>
-          <v-col cols="3" class="pt-5">
+          <v-col cols="12" sm="6" md="4" lg="3" class="pt-5">
             <v-card elevation="0" color="transparent">
               <img
                 src="@/assets/images/footer-logo.webp"
@@ -236,7 +236,7 @@
               </span>
             </div>
           </v-col>
-          <v-col cols="12">
+          <v-col cols="12" class="cards_img">
             <div class="img-parent text-center mt-12 mb-8">
               <img
                 src="https://new-ella-demo.myshopify.com/cdn/shop/files/trust_551fa8e0-5f24-4fbc-bf22-74c01b859a01.png?v=1639984732"
@@ -246,7 +246,7 @@
           </v-col>
         </v-row>
         <v-row class="pt-7" style="background-color: #fff">
-          <v-col cols="6">
+          <v-col cols="12" md="6" class="text-center">
             <p>
               &copy; {{ new Date().getFullYear() }} Ella Demo All Rights
               Reserved. Powered by
@@ -255,8 +255,11 @@
               >
             </p>
           </v-col>
-          <v-col cols="6">
-            <div class="master-cards d-flex justify-end" style="gap: 10px">
+          <v-col cols="12" md="6">
+            <div
+              class="master-cards d-flex justify-center justify-md-end"
+              style="gap: 10px"
+            >
               <span v-for="(svg, i) in svgs" :key="i" v-html="svg"></span>
             </div>
           </v-col>
@@ -343,5 +346,11 @@ export default {
 }
 .v-card-text {
   padding: 0 0 20px 0 !important;
+}
+
+@media (max-width: 767px) {
+  .cards_img img {
+    width: 90%;
+  }
 }
 </style>

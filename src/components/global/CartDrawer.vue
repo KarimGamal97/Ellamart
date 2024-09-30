@@ -139,10 +139,10 @@
             :key="item.id"
             class="align-center mb-1"
           >
-            <v-col cols="5">
+            <v-col cols="12" sm="5">
               <img :src="item.thumbnail" class="w-100" alt="" />
             </v-col>
-            <v-col cols="7">
+            <v-col cols="12" sm="7">
               <v-card-title
                 class="px-0"
                 style="white-space: pre-wrap; font-size: 14px; line-height: 1.2"
@@ -241,6 +241,11 @@ import { cartStore } from "@/stores/cart";
 import { mapActions, mapState } from "pinia";
 export default {
   inject: ["Emitter"],
+  props: {
+    windowWidth: {
+      type: Number,
+    },
+  },
   data() {
     return {
       drawer: true,
@@ -291,6 +296,18 @@ export default {
   &::-webkit-scrollbar-track {
     width: 5px;
     background-color: #eee;
+  }
+}
+
+@media (max-width: 580px) {
+  .drawer {
+    .v-card-text {
+      font-size: 12px;
+    }
+    button {
+      height: 25px !important;
+      font-size: 11px;
+    }
   }
 }
 </style>

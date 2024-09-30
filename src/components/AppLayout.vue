@@ -1,8 +1,8 @@
 <template>
   <div class="layout">
     <v-layout class="position-relative">
-      <CartDrawer />
-      <MenuDrawer />
+      <CartDrawer :windowWidth="windowWidth" />
+      <MenuDrawer :windowWidth="windowWidth" />
       <v-main
         :style="`padding-top:${
           $route.name == 'check_out'

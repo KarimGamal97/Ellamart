@@ -3,7 +3,7 @@
     <v-navigation-drawer
       v-model="drawer"
       temporary
-      width="370"
+      :width="windowWidth <= 767 ? windowWidth / 2 : 370"
       class="px-4 pt-2 cart-drawer"
     >
       <v-card class="px-0" elevation="0">
@@ -24,16 +24,23 @@
               })
             "
           >
-            <v-list-item-title>{{ cat.title }}</v-list-item-title>
+            <v-list-item-title class="nav-link">{{
+              cat.title
+            }}</v-list-item-title>
           </v-list-item>
           <v-list-group>
             <template v-slot:activator="{ props }">
               <v-list-item v-bind="props" class="px-0">
-                <v-list-item-title>Languages</v-list-item-title>
+                <v-list-item-title class="nav-link"
+                  >Languages</v-list-item-title
+                >
               </v-list-item>
             </template>
             <v-list-item>
-              <v-list-item-title class="d-flex align-center" style="gap: 10px">
+              <v-list-item-title
+                class="d-flex align-center nav-link"
+                style="gap: 10px"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   version="1.1"
@@ -111,7 +118,10 @@
               >
             </v-list-item>
             <v-list-item>
-              <v-list-item-title class="d-flex align-center" style="gap: 10px">
+              <v-list-item-title
+                class="d-flex align-center nav-link"
+                style="gap: 10px"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   version="1.1"
@@ -154,6 +164,11 @@ export default {
     };
   },
   inject: ["Emitter"],
+  props: {
+    windowWidth: {
+      type: Number,
+    },
+  },
   mounted() {
     this.Emitter.on("openMenu", () => {
       this.drawer = true;
@@ -165,4 +180,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+@media (max-width: 580px) {
+  .nav-link {
+    font-size: 12px;
+  }
+}
+</style>
