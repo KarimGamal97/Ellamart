@@ -47,6 +47,7 @@
         disableOnInteraction: false,
       }"
       :loop="true"
+      :breakpoints="breakpoints"
     >
       <swiper-slide v-for="item in products" :key="item.id">
         <v-card elevation="0" class="pb-5">
@@ -195,6 +196,20 @@ export default {
   data() {
     return {
       showenItem: {},
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+        },
+        580: {
+          slidesPerView: 2,
+        },
+        767: {
+          slidesPerView: 3,
+        },
+        990: {
+          slidesPerView: 4,
+        },
+      },
     };
   },
   methods: {
@@ -205,7 +220,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .swiper-button-next,
 .swiper-button-prev {
   width: 40px !important;
@@ -231,5 +246,16 @@ export default {
 }
 .img-parent:hover .quick-view-btn {
   opacity: 1 !important;
+}
+@media (max-width: 580px) {
+  .img-parent {
+    height: 300px !important;
+  }
+}
+@media (max-width: 580px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    top: 43% !important;
+  }
 }
 </style>

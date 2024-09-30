@@ -2,7 +2,14 @@
   <div class="top-offers py-9" style="background-color: #f5f5f5">
     <v-container fluid>
       <v-row>
-        <v-col cols="4" class="py-0 pr-6" style="height: 260px">
+        <v-col
+          cols="12"
+          sm="6"
+          md="4"
+          lg="4"
+          class="py-0 px-3 pr-lg-6 mb-5 mb-sm-0"
+          style="height: 260px"
+        >
           <div class="parent">
             <img
               src="@/assets/images/playstations.webp"
@@ -11,7 +18,14 @@
             />
           </div>
         </v-col>
-        <v-col cols="4" class="py-0 pr-6" style="height: 260px">
+        <v-col
+          cols="12"
+          sm="6"
+          md="4"
+          lg="4"
+          class="py-0 px-3 pr-lg-6 mb-5 mb-sm-0"
+          style="height: 260px"
+        >
           <div class="parent">
             <img
               src="@/assets/images/headset.webp"
@@ -20,7 +34,14 @@
             />
           </div>
         </v-col>
-        <v-col cols="4" class="py-0 pr-6" style="height: 260px">
+        <v-col
+          cols="12"
+          sm="6"
+          md="4"
+          lg="4"
+          class="py-0 px-3 pr-lg-6 mb-5 mb-sm-0 mt-5 mt-lg-0"
+          style="height: 260px"
+        >
           <div class="parent">
             <img
               src="@/assets/images/chairs.webp"
@@ -31,7 +52,7 @@
         </v-col>
       </v-row>
       <v-row class="mt-9">
-        <v-col cols="6" class="mt-5 pr-6 py-0">
+        <v-col cols="12" sm="6" class="mt-5 px-3 pr-sm-5 py-0">
           <div class="parent">
             <img
               src="@/assets/images/iphones.webp"
@@ -40,7 +61,7 @@
             />
           </div>
         </v-col>
-        <v-col cols="6" class="mt-5 pr-6 py-0">
+        <v-col cols="12" sm="6" class="mt-5 pl-3 pl-sm-5 py-0">
           <div class="parent">
             <img
               src="@/assets/images/laptops.webp"

@@ -8,7 +8,7 @@
     >
       <v-container fluid class="px-0">
         <v-row>
-          <v-col cols="3">
+          <v-col cols="12" sm="6" md="4" lg="3">
             <v-card elevation="0" color="transparent">
               <v-card-title class="mb-3">Shop</v-card-title>
               <v-card-text v-for="category in categories" :key="category.title">
